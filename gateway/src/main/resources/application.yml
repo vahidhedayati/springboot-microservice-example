@@ -1,0 +1,99 @@
+server:
+  port: 8085
+
+management.endpoints.web.exposure.include: '*'
+management.endpoint.health.show-details: always
+spring:
+  application:
+    name: API-GATEWAY
+resilience4j:
+  retry:
+    instances:
+      arrayRetry:
+        max-attempts: 3
+        wait-duration: 5s
+        enable-exponential-backoff: true
+        exponential-backoff-multiplier: 2
+        retry-exception:
+          - org.springframework.web.client.RestClientException
+    retry-aspect-order: 2
+  circuitbreaker:
+    instances:
+      arrayService:
+        wait-duration-in-open-state: 1m
+        permitted-number-of-calls-in-half-open-state: 3
+        sliding-window-type: count-based
+        sliding-window-size: 5
+        minimum-number-of-calls: 5
+        slow-call-duration-threshold: 10s
+        slow-call-rate-threshold: 60
+        failure-rate-threshold: 60
+    circuit-breaker-aspect-order: 1
+
+resilience4j.circuitbreaker:
+    arrayService2:
+      registerHealthIndicator: true
+      eventConsumerBufferSize: 10
+      automaticTransitionFromOpenToHalfOpenEnabled: true
+      failureRateThreshold: 50
+      minimumNumberOfCalls: 5
+      permittedNumberOfCallsInHalfOpenState: 3
+      slidingWindowSize: 10
+      waitDurationInOpenState: 5s
+      slidingWindowType: COUNT_BASED
+    service1:
+      registerHealthIndicator: true
+      ringBufferSizeInClosedState: 5
+      ringBufferSizeInHalfOpenState: 3
+      waitDurationInOpenState: 10s
+      failureRateThreshold: 50
+      recordExceptions:
+        - org.springframework.web.client.HttpServerErrorException
+        - java.io.IOException
+        - java.util.concurrent.TimeoutException
+        - org.springframework.web.client.ResourceAccessException
+      ignoreExceptions:
+        #- com.vh.test.microservice.service.MyException
+    service2:
+      registerHealthIndicator: true
+      ringBufferSizeInClosedState: 6
+      ringBufferSizeInHalfOpenState: 4
+      waitDurationInOpenState: 20s
+      failureRateThreshold: 60
+
+resilience4j.ratelimiter:
+  instances:
+    service1:
+      limitForPeriod: 10
+      limitRefreshPeriod: 100000
+      timeoutDuration: 1000ms
+
+resilience4j.retry:
+  instances:
+    retryService1:
+      maxRetryAttempts: 5
+      waitDuration: 10000
+
+resilience4j.bulkhead:
+  instances:
+    bulkheadService1:
+      maxWaitDuration: 10ms
+      maxConcurrentCall: 30
+
+resilience4j.thread-pool-bulkhead:
+  instances:
+    bulkheadService1:
+      maxThreadPoolSize: 1
+      coreThreadPoolSize: 1
+      queueCapacity: 1
+#management:
+#  health:
+#    circuitbreakers:
+#      enabled: true
+#  endpoints:
+#    web:
+#      exposure:
+#        include: health
+#  endpoint:
+#    health:
+#      show-details: always
