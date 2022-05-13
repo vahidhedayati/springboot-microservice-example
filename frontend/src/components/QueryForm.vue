@@ -25,9 +25,9 @@
   <div class="results">
     <div class="resultPane" :class="{ resultPanel: i%4===0 }" v-for="([entry, val], i) in Object.entries(arrayobject)" :ref="entry" :key="entry" :id="entry">
       Awaiting result for {{entry}} currently set to {{val}} {{i}}
-      <div :id="entry+'Post'" class="newRow" :ref="entry+'Post'"></div>
-      <div :id="entry+'Get'"  class="newRow"  :ref="entry+'Get'"></div>
-      <div :id="entry+'Delete'"  class="newRow"  :ref="entry+'Delete'"></div>
+      <div :id="entry+'Post'" class="newRow postResult" :ref="entry+'Post'"></div>
+      <div :id="entry+'Get'"  class="newRow getResult"  :ref="entry+'Get'"></div>
+      <div :id="entry+'Delete'"  class="newRow deleteResult"  :ref="entry+'Delete'"></div>
     </div>
   </div>
 </template>
@@ -51,6 +51,9 @@ export default class QueryForm extends Vue {
     const generateBody = { elements: this.elements, text: this.text }
     for (const [key, value] of Object.entries(this.arrayobject)) {
       // console.log(key + ' has ' + value)
+      (this.$refs[key + 'Post'] as any)[0].innerHTML = '';
+      (this.$refs[key + 'Get'] as any)[0].innerHTML = '';
+      (this.$refs[key + 'Delete'] as any)[0].innerHTML = ''
       if (value === true) {
         this.fetchPost(key, generateBody)
         if (this.queryId !== '') {
@@ -113,9 +116,19 @@ export default class QueryForm extends Vue {
 .row {
   padding-bottom: 8px;
 }
+.postResult {
+  background: gold;
+}
+.getResult {
+  background: azure;
+}
+.deleteResult {
+  background: pink;
+}
 .newRow {
   width: 100%;
   margin-top:20px;
+  font-size: 14px;
   word-wrap: break-word;
   flex-wrap: wrap;
 }
