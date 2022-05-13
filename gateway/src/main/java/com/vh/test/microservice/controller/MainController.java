@@ -106,7 +106,7 @@ public class MainController {
      */
     @DeleteMapping("/{methodName}/{id}")
     public ResponseEntity<Flux<Map>> removeFromListByIndex(@PathVariable String methodName, @PathVariable Integer id) {
-        ResponseEntity<Map> response =  restTemplate.exchange("http://ARRAY-LIST/arrayList/"+methodName+"/"+id, HttpMethod.DELETE,null, Map.class);
+        ResponseEntity<Map> response =  restTemplate.exchange("http://ARRAY-LIST/"+methodName+"/"+id, HttpMethod.DELETE,null, Map.class);
         return new ResponseEntity(Flux.just(response), response.getStatusCode());
     }
 
