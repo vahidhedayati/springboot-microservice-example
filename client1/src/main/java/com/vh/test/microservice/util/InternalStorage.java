@@ -42,6 +42,7 @@ public class InternalStorage {
         BigDecimal estimated = estimateTime(System.nanoTime()-startTime);
         arrayResult.put("method", "fillArrayList");
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", ARRAY_LIST.size());
         return arrayResult;
     }
     public Map<String, Object> findArrayListByIndex(int index) {
@@ -53,6 +54,7 @@ public class InternalStorage {
         arrayResult.put("indexId:", index);
         arrayResult.put("valueOfIndex", item);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", ARRAY_LIST.size());
         return arrayResult;
     }
     public Map<String, Object> removeFromArrayListByIndex(int index) {
@@ -63,6 +65,7 @@ public class InternalStorage {
         arrayResult.put("method", "removeFromArrayListByIndex");
         arrayResult.put("indexId:", index);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", ARRAY_LIST.size());
         return arrayResult;
     }
 
@@ -75,6 +78,7 @@ public class InternalStorage {
         BigDecimal estimated = estimateTime(System.nanoTime()-startTime);
         arrayResult.put("method", "fillLinkListArrayList");
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", LINKED_ARRAY_LIST.size());
         return arrayResult;
     }
     public Map<String, Object> findLinkedListByIndex(int index) {
@@ -86,6 +90,7 @@ public class InternalStorage {
         arrayResult.put("indexId:", index);
         arrayResult.put("valueOfIndex", item);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", LINKED_ARRAY_LIST.size());
         return arrayResult;
     }
     public Map<String, Object> removeFromLinkedListByIndex(int index) {
@@ -96,6 +101,7 @@ public class InternalStorage {
         arrayResult.put("method", "removeFromLinkedListByIndex");
         arrayResult.put("indexId:", index);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", LINKED_ARRAY_LIST.size());
         return arrayResult;
     }
 
@@ -110,6 +116,7 @@ public class InternalStorage {
         BigDecimal estimated = estimateTime(System.nanoTime()-startTime);
         arrayResult.put("method", "fillStringArrayList");
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", STRING_ARRAY.length);
         return arrayResult;
     }
     public Map<String, Object> findStringArrayListByIndex(int index) {
@@ -121,6 +128,7 @@ public class InternalStorage {
         arrayResult.put("indexId:", index);
         arrayResult.put("valueOfIndex", item);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", STRING_ARRAY.length);
         return arrayResult;
     }
     public Map<String, Object> removeFromStringArrayListByIndex(int index) {
@@ -138,6 +146,7 @@ public class InternalStorage {
         arrayResult.put("method", "removeFromLinkedListByIndex");
         arrayResult.put("indexId:", index);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", STRING_ARRAY.length);
         return arrayResult;
     }
 
@@ -152,6 +161,7 @@ public class InternalStorage {
         BigDecimal estimated = estimateTime(System.nanoTime()-startTime);
         arrayResult.put("method", "fillArrayBlockingList");
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", ARRAY_BLOCKING_LIST.size());
         return arrayResult;
     }
     public Map<String, Object> findArrayBlockingListByIndex(int index) {
@@ -174,6 +184,7 @@ public class InternalStorage {
         arrayResult.put("indexId:", index);
         arrayResult.put("valueOfIndex", item);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", ARRAY_BLOCKING_LIST.size());
         return arrayResult;
     }
     public Map<String, Object> removeFromArrayBlockingListByIndex(int index) {
@@ -194,6 +205,7 @@ public class InternalStorage {
         arrayResult.put("method", "removeArrayBlockingListByIndex");
         arrayResult.put("indexId:", index);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", ARRAY_BLOCKING_LIST.size());
         return arrayResult;
     }
 
@@ -208,6 +220,7 @@ public class InternalStorage {
         BigDecimal estimated = estimateTime(System.nanoTime()-startTime);
         arrayResult.put("method", "fillTreeSet");
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", TREE_SET.size());
         return arrayResult;
     }
     public Map<String, Object> findTreeSetByIndex(int index) {
@@ -220,6 +233,7 @@ public class InternalStorage {
         arrayResult.put("indexId:", index);
         arrayResult.put("valueOfIndex", item);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", TREE_SET.size());
         return arrayResult;
     }
     public Map<String, Object> removeFromTreeSetByIndex(int index) {
@@ -232,6 +246,7 @@ public class InternalStorage {
         arrayResult.put("method", "removeFromTreeSetByIndex");
         arrayResult.put("indexId:", index);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", TREE_SET.size());
         return arrayResult;
     }
 
@@ -245,6 +260,7 @@ public class InternalStorage {
         BigDecimal estimated = estimateTime(System.nanoTime()-startTime);
         arrayResult.put("method", "fillStack");
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", STACK.size());
         return arrayResult;
     }
     public Map<String, Object> findStackByIndex(int index) {
@@ -256,6 +272,7 @@ public class InternalStorage {
         arrayResult.put("indexId:", index);
         arrayResult.put("valueOfIndex", item);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", STACK.size());
         return arrayResult;
     }
     public Map<String, Object> removeFromStackByIndex(int index) {
@@ -266,6 +283,7 @@ public class InternalStorage {
         arrayResult.put("method", "removeFromStackByIndex");
         arrayResult.put("indexId:", index);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", STACK.size());
         return arrayResult;
     }
 
@@ -278,6 +296,7 @@ public class InternalStorage {
         BigDecimal estimated = estimateTime(System.nanoTime()-startTime);
         arrayResult.put("method", "fillHashSet");
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", HASHSET.size());
         return arrayResult;
     }
     public Map<String, Object> findHashSetByIndex(int index) {
@@ -290,6 +309,7 @@ public class InternalStorage {
         arrayResult.put("indexId:", index);
         arrayResult.put("valueOfIndex", item);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", HASHSET.size());
         return arrayResult;
     }
     public Map<String, Object> removeFromHashSetByIndex(int index) {
@@ -302,6 +322,7 @@ public class InternalStorage {
         arrayResult.put("method", "removeFromHashSetByIndex");
         arrayResult.put("indexId:", index);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", HASHSET.size());
         return arrayResult;
     }
 
@@ -315,6 +336,7 @@ public class InternalStorage {
         BigDecimal estimated = estimateTime(System.nanoTime()-startTime);
         arrayResult.put("method", "fillHashMap");
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", HASHMAP.size());
         return arrayResult;
     }
     public Map<String, Object> findHashMapByIndex(int index) {
@@ -326,6 +348,7 @@ public class InternalStorage {
         arrayResult.put("indexId:", index);
         arrayResult.put("valueOfIndex", item);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", HASHMAP.size());
         return arrayResult;
     }
     public Map<String, Object> removeFromHashMapByIndex(int index) {
@@ -336,6 +359,7 @@ public class InternalStorage {
         arrayResult.put("method", "removeFromHashMapByIndex");
         arrayResult.put("indexId:", index);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", HASHMAP.size());
         return arrayResult;
     }
 
@@ -349,6 +373,7 @@ public class InternalStorage {
         BigDecimal estimated = estimateTime(System.nanoTime()-startTime);
         arrayResult.put("method", "fillTreeHashMap");
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", TREE_HASHMAP.size());
         return arrayResult;
     }
     public Map<String, Object> findTreeHashMapByIndex(int index) {
@@ -360,6 +385,7 @@ public class InternalStorage {
         arrayResult.put("indexId:", index);
         arrayResult.put("valueOfIndex", item);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", TREE_HASHMAP.size());
         return arrayResult;
     }
     public Map<String, Object> removeFromTreeHashMapByIndex(int index) {
@@ -370,6 +396,7 @@ public class InternalStorage {
         arrayResult.put("method", "removeFromTreeHashMapByIndex");
         arrayResult.put("indexId:", index);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", TREE_HASHMAP.size());
         return arrayResult;
     }
 
@@ -382,6 +409,7 @@ public class InternalStorage {
         BigDecimal estimated = estimateTime(System.nanoTime()-startTime);
         arrayResult.put("method", "fillConcurrentHashMap");
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", CONCURRENT_HASHMAP.size());
         return arrayResult;
     }
     public Map<String, Object> findConcurrentHashMapByIndex(int index) {
@@ -393,6 +421,7 @@ public class InternalStorage {
         arrayResult.put("indexId:", index);
         arrayResult.put("valueOfIndex", item);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", CONCURRENT_HASHMAP.size());
         return arrayResult;
     }
     public Map<String, Object> removeFromConcurrentHashMapByIndex(int index) {
@@ -403,6 +432,7 @@ public class InternalStorage {
         arrayResult.put("method", "removeFromTreeHashMapByIndex");
         arrayResult.put("indexId:", index);
         arrayResult.put("timeTaken", estimated);
+        arrayResult.put("sizeOfArray", CONCURRENT_HASHMAP.size());
         return arrayResult;
     }
 

@@ -1,4 +1,4 @@
-This is a springboot microservice application, I haven't had time to test / fully complete this project. Just something that I got side tracked with in the aim of learning more about springboot microservices.
+This is a springboot microservice application, 
 
 In the last few years Hysterix has become deprecated and now changed to a few alternatives I used resilience4j in this project, 
 
@@ -6,6 +6,6 @@ It has also been made into a reactive application using springboot-webflux (It c
 
 There is a `registry-app` which uses `eureka-server` the `eureka-clients` are both the `gateway` (purely for scalibility - this needs more thought from my end I must admit) as well as `client1`, `gateway` uses eureka bound name of `client1-app` to communicate rather than physical ip/port
 
-The project if I get the time I will add a react front end something like `Vue` or  `react`  to call backend methods.
 
+Currently there is a vue 3 app which shows a real time view of the calls made, a video can be seen here: [https://www.youtube.com/watch?v=_PBNDa76L3g](Video demonstrating code)
 
